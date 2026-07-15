@@ -1,0 +1,33 @@
+using System;
+namespace work1
+{
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            Console.WriteLine("what is your name??");
+            string name = Console.ReadLine();
+            Console.WriteLine("what is your surname??");
+            string sur = Console.ReadLine();
+            Console.WriteLine("what is your age??");
+            string id = Console.ReadLine();
+
+            if (int.TryParse(id, out int idade))
+            {
+                int dobro = idade * 2;
+                int triplo = idade * 3;
+
+                Console.WriteLine();
+                Console.WriteLine($"hello, {name} {sur}!");
+                Console.WriteLine($"your atual age is {idade}");
+                Console.WriteLine($"the double of your age is {dobro}");
+                Console.WriteLine($"the triple of your age is {triplo}");
+            }
+            else
+            {
+                Console.WriteLine("oops, you do not insert a whole number");
+            }
+
+        }
+    }
+}
