@@ -5,27 +5,31 @@ namespace Work
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("digite o numero de seu interesse: ");
+			string cont;
+			cont = "sim";
+
+			do
+			{
+			
+			Console.WriteLine("digite o numero de seu interesse: ");
             string a = Console.ReadLine();
             Console.WriteLine("digite outro numero: ");
             string b = Console.ReadLine();
 
 
             if (double.TryParse(a, out double dec1))
-            {
-                Console.WriteLine("operando...");
-            }
+            {}
             else
             {
                 Console.WriteLine("digite um numero valido");
+				continue;
             }
             if (double.TryParse(b, out double  dec2))
-            {
-                Console.WriteLine("operando...");
-            }
+            {}
             else
             {
                 Console.WriteLine("digite um numero valido");
+				continue;
             }
 
 
@@ -49,16 +53,26 @@ namespace Work
             }
             else if(opr == "/")
             {
+				if (dec2 == 0)
+				{
+					Console.WriteLine("invalido, digite um numero diferente de 0");
+					continue;
+				}
                 resultado = dec1 / dec2;
             }
             else
             {
                 Console.WriteLine("digite uma operacao valida.");
+				continue;
             }
-            
-            Console.WriteLine($"resultado da sua operacao e {resultado}");
-
-
+			
+			Console.WriteLine($"resultado da sua operacao e {resultado}");
+			Console.WriteLine("deseja continuar? sim/nao");
+				cont = Console.ReadLine();
+			}	
+			
+			while (cont == "sim");
+			
         }
     }
 }
