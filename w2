@@ -1,0 +1,64 @@
+using System;
+namespace Work
+{
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            Console.WriteLine("digite o numero de seu interesse: ");
+            string a = Console.ReadLine();
+            Console.WriteLine("digite outro numero: ");
+            string b = Console.ReadLine();
+
+
+            if (double.TryParse(a, out double dec1))
+            {
+                Console.WriteLine("operando...");
+            }
+            else
+            {
+                Console.WriteLine("digite um numero valido");
+            }
+            if (double.TryParse(b, out double  dec2))
+            {
+                Console.WriteLine("operando...");
+            }
+            else
+            {
+                Console.WriteLine("digite um numero valido");
+            }
+
+
+            Console.WriteLine("escolha a operacao desejada: ");
+            string opr = Console.ReadLine();
+
+            double resultado = 0;
+
+
+            if (opr == "+")
+            {
+                resultado = dec1 + dec2;
+            }
+            else if(opr == "-")
+            {
+                resultado = dec1 - dec2;
+            }
+            else if(opr == "*")
+            {
+                resultado = dec1 * dec2;
+            }
+            else if(opr == "/")
+            {
+                resultado = dec1 / dec2;
+            }
+            else
+            {
+                Console.WriteLine("digite uma operacao valida.");
+            }
+            
+            Console.WriteLine($"resultado da sua operacao e {resultado}");
+
+
+        }
+    }
+}
