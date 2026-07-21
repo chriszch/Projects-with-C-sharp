@@ -1,0 +1,49 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text.RegularExpressions;
+
+namespace Work
+{
+	public class Program
+	{
+		public static void Main(string[] args)
+		{
+
+			string resp;
+			resp = "nao";
+			do
+			{
+				Console.WriteLine("--------Cadastro---------");
+
+				Console.WriteLine("digite o usuario: ");
+				string user = Console.ReadLine();
+
+				Console.WriteLine("digite a sua idade: ");
+				string age = Console.ReadLine();
+			
+				if(int.TryParse(age, out int idade))
+				{}
+				else
+				{
+				    Console.WriteLine("digite uma idade valida");
+				    continue;
+				}
+				
+				Console.WriteLine("digite a senha de usuario: ");
+				string pin = Console.ReadLine();
+
+
+
+				Console.WriteLine("----seus dados----");
+				Console.WriteLine($"seu nome: {user}");
+				Console.WriteLine($"sua idade: {idade}");
+				Console.WriteLine($"sua senha: {pin}");
+				Console.WriteLine("Confirma? sim/nao");
+				resp = Console.ReadLine();
+			}
+			while(resp == "nao");
+
+		}
+	}
+}
