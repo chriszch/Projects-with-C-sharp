@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 
-namespace Work
+namespace HelloWorld
 {
 	public class Program
 	{
@@ -16,12 +16,19 @@ namespace Work
 			{
 				Console.WriteLine("--------Cadastro---------");
 
-				Console.WriteLine("digite o usuario: ");
+				Console.WriteLine("digite o usuario, apresente apenas letras.");
 				string user = Console.ReadLine();
-
+				bool valido = Regex.IsMatch(user, @"^[a-zA-Z]+$");
+				if(!valido)
+				{
+				    Console.WriteLine("digite um nome valido");
+				    continue;
+				}
+				
+				
 				Console.WriteLine("digite a sua idade: ");
 				string age = Console.ReadLine();
-			
+
 				if(int.TryParse(age, out int idade))
 				{}
 				else
@@ -30,10 +37,17 @@ namespace Work
 				    continue;
 				}
 				
-				Console.WriteLine("digite a senha de usuario: ");
+				Console.WriteLine("digite a senha de usuario, acrescente letras maiusculas e numeros com o total de 6 caracteres.");
 				string pin = Console.ReadLine();
-
-
+				bool valido2 = Regex.IsMatch(pin, "(?=.*[A-Z])");
+				bool valido3 = Regex.IsMatch(pin, "(?=.*[a-z])");
+				bool valido4 = Regex.IsMatch(pin, "(?=.*[0-9])");
+				bool valido5 = Regex.IsMatch(pin, "(^.{6}$)");
+				if(!(valido2&&valido3&&valido4&&valido5))
+				{
+				    Console.WriteLine("digite uma senha mais forte");
+				    continue;
+				}
 
 				Console.WriteLine("----seus dados----");
 				Console.WriteLine($"seu nome: {user}");
